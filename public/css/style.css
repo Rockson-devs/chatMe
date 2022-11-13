@@ -1,0 +1,108 @@
+/* Index page styling */
+
+#main-container{
+    width: 500px ;
+    border: 3px solid black;
+    margin: auto;
+    padding: 50px;
+    background-color: aliceblue;
+}
+#welcome-text, #chat-button,#register-btn, #login-btn{
+    text-align: center;
+    font-weight: bold;
+}
+#chat-button{
+    margin-top: 40px;
+}
+
+
+#chats{
+    background-color: aliceblue;
+    border: 3px solid black ;
+    margin: 10px;
+    height: auto;
+}
+
+/* Chats messages CSS */
+#chatter-list{
+   list-style: none; 
+   margin: 20px;
+}
+li{
+    list-style-type: none;
+}
+
+/* make the picture inline with the text */
+#chatter{
+    position: relative;
+    /* display: block; */
+    margin: 20px;
+}
+img{
+    display: inline-block;
+    position: absolute;
+    margin-left: 5px;
+    width: 5%;
+    height: 57px;
+    border-radius: 50%;
+}
+#chatter-name{
+    font-weight: bold;
+    display: inline-block;
+    line-height: 55px; 
+    margin-left: 80px;
+}
+#chatter-message{
+    width: 800px;
+    display:inline-flex;
+    line-height: 20px; 
+}
+
+/* logout feature styling */
+#logout-button{
+    background-color: white;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    float: right;
+    margin: 20px;
+    border: 2px solid rgb(212, 109, 109);
+
+}
+#logout-button:hover,
+#logout:hover{
+    background-color: red !important;
+}
+
+#logout{
+    /* color: red; */
+    text-decoration: none;
+    white-space: nowrap;
+    color: black;
+}
+
+/* login Style */
+
+#form-section{
+    background-color: aliceblue;
+    border: 3px solid black;
+    padding: 20px;
+    text-align: center;
+}
+#username{
+    margin-bottom: 10px;
+}
+#password{
+    margin-bottom: 10px;
+}
+
+/* demo */
+
+#chat{
+    width: 500px ;
+    height: 250px;
+    border: 3px solid black;
+    margin: 2px;
+    padding: 50px;
+    background-color: aliceblue;
+}

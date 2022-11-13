@@ -1,0 +1,83 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/socket.io/socket.io.js"></script> -->
+    <title>chatters</title>
+</head>
+
+<body>
+    <!-- <ul id="chatterList"> -->
+        <% if (loggedIn) { %> 
+        <h1>Chat</h1>
+        <button type="submit" id="logout">Logout</button>
+        <form action="" id="chatForm">
+            <input type="text" id="chatInput" autocomplete="off">
+            <input type="hidden" id="chatUsername" value="<%= loggedUsername %>">
+            <input id="chatUserID" type="hidden" value="<%= loggedIn %>">
+            <button type="submit" id="chat-submit" value="send">Send</button>
+        </form>
+        <ul id="chat"></ul>
+        <% } %>
+    <!-- </ul> -->
+
+   <script src="/socket.io/socket.io.js"></script>
+   <script >
+       var socket = io();
+
+        var chatForm = document.getElementById("chatForm")
+        var chatInput = document.getElementById("chatInput")
+        var chat = document.getElementById("chat")
+         var chatUserID = document.getElementById("chatUserID")
+         var chatUsername = document.getElementById("chatUsername")
+        var logout = document.getElementById("logout")
+       
+        
+        chatForm.addEventListener('submit', 
+        function (event) {
+            event.preventDefault()
+            let text = chatInput.value
+            let userId = chatUserID.value 
+            let userName = chatUsername.value
+            //possible to have userName
+            if (chatInput.value) {
+                socket.emit("message",{
+                  content:  text,
+                   userId: userId,
+                   userName: userName
+                });
+                chatInput.value = "";
+            }
+        });
+
+        socket.on("message", function (msg) {
+            let item = document.createElement('li');
+            //check for compare user IDs and if they are the same make their styling bolder to distinguish them form other members
+            item.textContent = `${msg.userName}: ${ msg.content}`
+            chat.appendChild(item);
+        });
+        //load first 5 messages
+        socket.on("load all messages", (messages) => {
+            messages.forEach(message => {
+                let item = document.createElement('li');
+                item.textContent = `${message.userName}: ${message.content}`
+                // item.textContent = msg.content
+                chat.appendChild(item);
+            })
+        })
+        
+        socket.on("user disconnected", () => {
+            let item = document.createElement('li');
+            item.textContent = `someone disconnected`
+            chat.appendChild(item);
+        })
+    
+   </script>
+</body>
+
+</html>

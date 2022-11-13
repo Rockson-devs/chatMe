@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>chatters</title>
+</head>
+<body>
+    <div id="container">
+        <div id="chats">
+            <!-- <button type="submit" id="logout-button">
+                <a href="#" id="logout">Leave Chat</a>
+            </button> -->
+            
+                <a href="#" id="logout">
+                    <button type="submit" id="logout-button">
+                    Leave Chat
+                    </button>
+                </a>
+            
+                
+            <ul id="chatter-list">
+                <li id="chatter">
+                    <img src="img/khaled.png" alt="chatter-image">
+                    <span id="chatter-name"> <%= allMessages.username %> </span>
+                    <span id="chatter-message">
+                        <%= allMessages.content %>
+                    </span>
+                    <small id="chatter-time"></small>
+                    <hr>
+                </li>
+                <!-- <li id="chatter">
+                    <img src="img/beard.jpg" alt="chatter-image">
+                    <span id="chatter-name">Vera Omane:</span>
+                    <span id="chatter-message">
+                        Hello World
+                    </span>
+                    <hr>
+                </li>
+                <li id="chatter">
+                    <img src="img/cloud.jpg" alt="chatter-image">
+                    <span id="chatter-name">Setina:</span>
+                    <span id="chatter-message">
+                        Hello World
+                    </span>
+                    <hr>
+                </li>
+                <li id="chatter">
+                    <img src="/img/code.jpg" alt="chatter-image">
+                    <span id="chatter-name">Mummy:</span>
+                    <span id="chatter-message">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                        specimen
+                        book
+                    </span>
+                    <hr>
+                </li>
+                <li id="chatter">
+                    <img src="img/woman.jpg" alt="chatter-image">
+                    <span id="chatter-name">Rita Nyamekye:</span>
+                    <span id="chatter-message">
+                        Hello World
+                    </span>
+                    <hr>
+                </li> -->
+            </ul>
+        </div>
+        <form action="/chat" id="chat-form" method="post">
+            <input type="text" id="chat-input" name="content">
+        <button type="submit" id="chat-submit"  value="send">Send</button>
+        </form>
+        
+    </div>
+    <script src="/js/script.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</body>
+</html>
